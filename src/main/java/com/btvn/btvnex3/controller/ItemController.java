@@ -7,11 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+
 @RestController
 @RequestMapping("/api/v1/items")
 public class ItemController {
     private final List<Item> inventory = new ArrayList<>();
 
+    @JacksonXmlRootElement(localName = "item")
     static class Item {
         private String id;
         private String name;
